@@ -13,6 +13,8 @@ const Feature = () => {
   const initialState = { accounts: [] } 
   const [wallet, setWallet] = useState(initialState) 
   const [target, setTarget] = useState("")
+  const [name, setName] = useState("")
+  const [properties, setProperties] = useState("")
 
 
 
@@ -67,7 +69,7 @@ const handleSubmit = async () => {
                       aria-label="button"
                       className="flex rounded-full bg-black px-7.5 py-2.5 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
                     >
-                      Submit request
+                      Submit
                     </button>
                   </div>
                 </form>
@@ -76,6 +78,7 @@ const handleSubmit = async () => {
                   Text here
                 </p>
               </div>
+
 
               <div className="mt-10">
           <p className="mt-5 text-black dark:text-white">
@@ -94,7 +97,7 @@ const handleSubmit = async () => {
                       aria-label="button"
                       className="flex rounded-full bg-black px-7.5 py-2.5 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
                     >
-                      Submit request
+                      Submit
                     </button>
                   </div>
                 </form>
@@ -104,6 +107,43 @@ const handleSubmit = async () => {
                 </p>
               </div>
 
+
+              <div className="mt-10">
+          <p className="mt-5 text-black dark:text-white">
+                  Create new asset type
+                </p>
+                <form onSubmit={handleSubmit}>
+                  <div className="flex flex-wrap gap-5">
+                    <input
+                      value={target}
+                      onChange={(e) => setName(e.target.value)}
+                      type="text"
+                      placeholder="Name, e.g: house"
+                      className="rounded-full border border-stroke px-6 py-2.5 shadow-solid-2 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
+                    />
+                    <input
+                      value={target}
+                      onChange={(e) => setProperties(e.target.value)}
+                      type="text"
+                      placeholder="Properties, e.g: beds,baths"
+                      className="rounded-full border border-stroke px-6 py-2.5 shadow-solid-2 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
+                    />
+                    <button
+                      aria-label="button"
+                      className="flex rounded-full bg-black px-7.5 py-2.5 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+
+                <p className="mt-5 text-black dark:text-white">
+                  Text here
+                </p>
+              </div>
+
+
+              
 
 
         </div>      
