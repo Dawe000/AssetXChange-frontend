@@ -1319,7 +1319,7 @@ name: 'name'
                 
 
                 <p className="mt-5 text-black dark:text-white">
-                  Text here
+                  
                 </p>
               </div>
 
@@ -1355,7 +1355,7 @@ name: 'name'
                 
 
                 <p className="mt-5 text-black dark:text-white">
-                  Text here
+                  
                 </p>
               </div>
 
