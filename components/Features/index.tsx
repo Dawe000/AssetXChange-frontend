@@ -5,7 +5,16 @@ import SingleFeature from "./SingleFeature";
 import SectionHeader from "../Common/SectionHeader";
 
 const Feature = () => {
+  var chainid;
+  try{
+    chainid=window.ethereum?.chainId;
+  }
+  catch{
+    chainid="0x1"
+  }
+
   return (
+
     <>
       {/* <!-- ===== Features Start ===== --> */}
       <section id="features" className="py-20 lg:py-25 xl:py-30">
@@ -14,7 +23,7 @@ const Feature = () => {
           <SectionHeader
             headerInfo={{
               title: "",
-              subtitle: "AssetXchange - Streamlining digital asset management",
+              subtitle: "AssetXchange - Streamlining asset management",
               description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
             convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam
             ante in maximus.`,
@@ -22,11 +31,11 @@ const Feature = () => {
           />
           {/* <!-- Section Title End --> */}
 
-          <div className="mt-12.5 grid grid-cols-1 gap-7.5 md:grid-cols-2 lg:mt-15 lg:grid-cols-3 xl:mt-20 xl:gap-12.5">
-            we can put buttons and stuff here
-          </div>
-        </div>
-      </section>
+          
+          <h1> buttons below here \n</h1>
+          <p>{chainid != "0x1" ? chainid:""}</p>
+          
+        </div>      </section>
 
       {/* <!-- ===== Features End ===== --> */}
     </>
