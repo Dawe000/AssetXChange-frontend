@@ -52,9 +52,6 @@ const Header = () => {
   }  
   
   
-  const handleDisconnect = async () => {
-    
-  }
 
   const handleConnect = async () => {  
     let accounts = await window.ethereum?.request({  method: "eth_requestAccounts" })  
@@ -153,9 +150,6 @@ const Header = () => {
       
       { wallet.accounts.length > 0 ?  
         <div>Wallet Account: { wallet.accounts[0] }</div> : <button onClick={handleConnect} >Connect MetaMask</button>
-      }
-      { wallet.accounts.length > 0 &&  
-      <button onClick={handleDisconnect}>Disconnect Metamask</button>
       }
   
     
