@@ -12,16 +12,31 @@ const Feature = () => {
   const [hasProvider, setHasProvider] = useState<boolean | null>(null)
   const initialState = { accounts: [] } 
   const [wallet, setWallet] = useState(initialState) 
+  const [targetType, setTargetType] = useState("")
   const [target, setTarget] = useState("")
   const [name, setName] = useState("")
   const [properties, setProperties] = useState("")
 
 
+  var placeholder = "text here";
 
 
-const handleSubmit = async () => {
 
+const handleTypeSubmit = async () => {
+  console.log(targetType)
 }
+
+const handleTargetSubmit = async () => {
+  console.log(target)
+}
+
+const handleNewTypeSubmit = async () => {
+  console.log(name)
+  console.log(properties)
+}
+
+
+
 
   useEffect(() => {
     const getProvider = async () => {
@@ -54,26 +69,27 @@ const handleSubmit = async () => {
           <p className="mt-5 text-black dark:text-white">
                   Get details of asset type
                 </p>
-                <form onSubmit={handleSubmit}>
+                
                   <div className="flex flex-wrap gap-5">
                     <input
-                      value={target}
-                      onChange={(e) => setTarget(e.target.value)}
+                      value={targetType}
+                      onChange={(e) => setTargetType(e.target.value)}
                       type="text"
                       placeholder="Enter assettype address"
                       className="rounded-full border border-stroke px-6 py-2.5 shadow-solid-2 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
                     />
                     <button
+                      onClick={handleTypeSubmit}
                       aria-label="button"
                       className="flex rounded-full bg-black px-7.5 py-2.5 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
                     >
                       Submit
                     </button>
                   </div>
-                </form>
+                
 
                 <p className="mt-5 text-black dark:text-white">
-                  Text here
+                  {placeholder}
                 </p>
               </div>
 
@@ -82,7 +98,7 @@ const handleSubmit = async () => {
           <p className="mt-5 text-black dark:text-white">
                   Get details of specific asset
                 </p>
-                <form onSubmit={handleSubmit}>
+                
                   <div className="flex flex-wrap gap-5">
                     <input
                       value={target}
@@ -92,13 +108,14 @@ const handleSubmit = async () => {
                       className="rounded-full border border-stroke px-6 py-2.5 shadow-solid-2 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
                     />
                     <button
+                      onClick={handleTargetSubmit}
                       aria-label="button"
                       className="flex rounded-full bg-black px-7.5 py-2.5 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
                     >
                       Submit
                     </button>
                   </div>
-                </form>
+                
 
                 <p className="mt-5 text-black dark:text-white">
                   Text here
@@ -110,30 +127,31 @@ const handleSubmit = async () => {
           <p className="mt-5 text-black dark:text-white">
                   Create new asset type
                 </p>
-                <form onSubmit={handleSubmit}>
+                
                   <div className="flex flex-wrap gap-5">
                     <input
-                      value={target}
+                      value={name}
                       onChange={(e) => setName(e.target.value)}
                       type="text"
                       placeholder="Name, e.g: house"
                       className="rounded-full border border-stroke px-6 py-2.5 shadow-solid-2 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
                     />
                     <input
-                      value={target}
+                      value={properties}
                       onChange={(e) => setProperties(e.target.value)}
                       type="text"
                       placeholder="Properties, e.g: beds,baths"
                       className="rounded-full border border-stroke px-6 py-2.5 shadow-solid-2 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
                     />
                     <button
+                      onClick={handleNewTypeSubmit}
                       aria-label="button"
                       className="flex rounded-full bg-black px-7.5 py-2.5 text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
                     >
                       Submit
                     </button>
                   </div>
-                </form>
+                
 
                 <p className="mt-5 text-black dark:text-white">
                   Text here

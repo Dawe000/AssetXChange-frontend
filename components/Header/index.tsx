@@ -60,7 +60,7 @@ const Header = () => {
       try {
         await window.ethereum?.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0x1f47b"' }],
+          params: [{ chainId: '0x1f47b' }],
         });
       } catch (switchError) {
         // This error code indicates that the chain has not been added to MetaMask.
