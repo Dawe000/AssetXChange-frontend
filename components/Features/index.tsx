@@ -1253,9 +1253,7 @@ name: 'name'
             headerInfo={{
               title: "",
               subtitle: "AssetXchange - Streamlining asset management",
-              description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-            convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam
-            ante in maximus.`,
+              description: `Low-code solution for simplyfying asset management`,
             }}
           />
           {/* <!-- Section Title End --> */}
