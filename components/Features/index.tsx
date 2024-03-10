@@ -6,6 +6,8 @@ import SectionHeader from "../Common/SectionHeader";
 import { useEffect, useState } from "react";
 import detectEthereumProvider from '@metamask/detect-provider';
 import {Web3} from "web3";
+import { Wallet } from "ethers";
+import { accounts, call } from "web3/lib/commonjs/eth.exports";
 
 const Feature = () => {
   const web3 = new Web3("https://node.ghostnet.etherlink.com");
@@ -17,6 +19,7 @@ const Feature = () => {
   const [name, setName] = useState("")
   const [properties, setProperties] = useState("")
   const [assetId, setAssetId] = useState("")
+  const [output1, setOutput1] = useState("")
   const abi = [
     {
       "inputs": [],
@@ -1149,15 +1152,18 @@ const Feature = () => {
     }
   ]
   
-  var placeholder = "text here";
+  var placeholder = [];
   const mainContract = new web3.eth.Contract(abi,"0x7EC006Fad1DE0fDc4F22F0B331ad6c43C4e798Ab");
+
+  const updateWallet = async (accounts:any) => {
+    setWallet({ accounts })
+  }  
 
 
 const handleTypeSubmit = async () => {
   var output = await (mainContract.methods.getAssetTypeData(targetType).call());
   console.log(output);
 }
-
 const handleTargetSubmit = async () => {
   var newContract = new web3.eth.Contract(otherabi,target);
   var output = await newContract.methods.getAssetData(assetId).call();
@@ -1165,6 +1171,63 @@ const handleTargetSubmit = async () => {
 }
 
 const handleNewTypeSubmit = async () => {
+  let accounts = await window.ethereum?.request({  method: "eth_requestAccounts" })  
+  updateWallet(accounts)   
+  var account = wallet.accounts[0]
+
+  const inputs = [{type: 'address',name: 'account'
+},{
+    type: 'string[]',
+    name: 'assetPropertyNames'
+},{
+  type: 'string',
+  name: 'URI'
+},
+{
+type: 'string',
+name: 'name'
+},
+{
+  type: 'string',
+  name: 'ticker'
+}  ,]
+
+  const encoded = web3.eth.abi.encodeFunctionSignature({
+    name: 'createAssetType',
+    type: 'function',
+    inputs: inputs});
+
+  console.log(encoded);
+  console.log(account)
+  const params2 = web3.eth.abi.encodeParameters(
+    inputs.map(value => value.type),
+    [account, ["ne","jh"],"af","flare","hagk"]
+  )
+  console.log(params2)
+
+  const calldata = encoded + params2.substring(1,params2.length)
+  console.log(calldata)
+  console.log(account)
+
+  var params = [
+    {
+        from: {account},
+        to: "0x7EC006Fad1DE0fDc4F22F0B331ad6c43C4e798Ab",
+        data: {calldata}, 
+      },];
+  
+      window.ethereum?.request({
+        method: "eth_sendTransaction",
+        params: params,
+    })
+    .then((result) => {
+        console.log(result)
+    })
+    .catch((error) => {
+        // If the request fails, the Promise rejects with an error.
+    });
+    
+  
   
 }
 
