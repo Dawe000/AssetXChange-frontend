@@ -1163,11 +1163,13 @@ const Feature = () => {
 const handleTypeSubmit = async () => {
   var output = await (mainContract.methods.getAssetTypeData(targetType).call());
   console.log(output);
+  alert(output)
 }
 const handleTargetSubmit = async () => {
   var newContract = new web3.eth.Contract(otherabi,target);
   var output = await newContract.methods.getAssetData(assetId).call();
   console.log(output);
+  alert(output)
 }
 
 const handleNewTypeSubmit = async () => {
