@@ -30,8 +30,6 @@ const handleSubmit = async () => {
     }
     getProvider()
   }, [])
-  window.ethereum?.on("chainChanged", (chainId) => 
-  window.location.reload());
 
   return (
 
