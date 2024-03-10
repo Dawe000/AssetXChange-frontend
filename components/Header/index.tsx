@@ -118,7 +118,7 @@ const Header = () => {
 
 
 
-            <div>Injected Provider {hasProvider ? 'DOES' : 'DOES NOT'} Exist</div>
+          
       
       { wallet.accounts.length > 0 ?  
         <div>Wallet Account: { wallet.accounts[0] }</div> : <button onClick={handleConnect} >Connect MetaMask</button>
